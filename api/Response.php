@@ -8,19 +8,14 @@
     {
         public function dispatch($payload, $request)
         {
-            $header = $_SERVER['HTTP_ACCEPT'];
-            /**
-             * You can fake the header below just to see how the response looks
-             * on a browser
-             */
-            //$header = 'text/xml';
-            //$header = 'text/html';
+            $header = (!empty($_SERVER['HTTP_ACCEPT'])) ? $_SERVER['HTTP_ACCEPT'] : 'text/html';
 
             $accept = $this -> parseAccept($header);
             header("HTTP/1.1 {$payload['status']}");
 
             if (in_array('text/xml', $accept))
             {
+                // return xml
                 $simplexml = simplexml_load_string("<?xml version=\"1.0\" ?><user />");
                 if (!empty($request -> resource['id']))
                 {

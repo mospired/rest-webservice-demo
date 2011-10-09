@@ -64,10 +64,12 @@
 
             $class = substr($base, 0, -1);
             $class = ucfirst($class);
-            return array(
+            $resource = array(
                     'class' => $class,
                     'id' => $id
-            );
+            ) + $_REQUEST;
+
+            return $resource;
         }
 
         protected function getAction()
@@ -85,6 +87,8 @@
                     $action = 'update';
                     break;
                 case 'DELETE' :
+                    $action = 'delete';
+                    break;
                 default :
                     $action = 'deny';
                     break;

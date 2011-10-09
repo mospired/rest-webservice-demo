@@ -11,8 +11,6 @@ input { display:block; }
 <body>
 <h1>Add User</h1>
 <form name="users" method="post" action="/users/">
-  <label for="id">Id: </label>
-  <input type="text" name="id" id="id">
   <label for="name">Name: </label>
   <input type="text" name="name" id="name">
   <label for="age">Age: </label>
