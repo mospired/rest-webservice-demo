@@ -9,25 +9,6 @@
     include ('../api/Response.php');
 
     /**
-     * autoload Zend
-     */
-
-    function autoLoadExtLibs($class_name)
-    {
-
-        $zend_path = "/usr/local/zend/share/ZendFramework/library/";
-        $class_file = $zend_path . str_replace('_', '/', $class_name) . '.php';
-        if (file_exists($class_file))
-        {
-            require $class_file;
-            return;
-        }
-        return;
-    }
-
-    spl_autoload_register('autoLoadExtLibs', true);
-
-    /**
      * handle the request
      */
     $request = new Request();
